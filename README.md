@@ -8,7 +8,7 @@
 1. [About the project](#about-the-project)
     1. [User Goals](#user-goals)
     2. [Owner Goals](#owner-goals)
-2. [Data Model](#data-model)
+2. [Wireframes](#wireframes)
 3. [Testing, Bugs, and Fixes](#testing-bugs-and-fixes)
 4. [Future Features](#future-features)
 5. [Deployment](#deployment)
@@ -35,8 +35,9 @@ Legendarium is an online character database, primarily intended for sharing RPG 
 - Text.
 - Text.
 
-# Data Model
-- Text.
+# Wireframes
+![Mobile wireframe.](/static/images/mobile_wireframe.png)
+![Desktop wireframe.](/static/images/desktop_wireframe.png)
 
 # Testing, Bugs, and Fixes
 - Text.
