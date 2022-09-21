@@ -7,7 +7,19 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
-    category_name = models.CharField(max_length=50)
+    CHARACTER = "Character"
+    PLACE = "Place"
+    OBJECT = "Object"
+    OTHER = "Other"
+    CATEGORY_CHOICES = [
+        (CHARACTER, "Character"),
+        (PLACE, "Place"),
+        (OBJECT, "Object"),
+        (OTHER, "Other")
+    ]
+    category_name = models.CharField(
+        max_length=50, choices=CATEGORY_CHOICES, default=CHARACTER
+    )
     category_pic = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
 
@@ -15,21 +27,21 @@ class Category(models.Model):
         return self.category_name
 
 
-class Character(models.Model):
+class Story(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     summary = models.CharField(max_length=200)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="char_posts"
+        User, on_delete=models.CASCADE, related_name="story_posts"
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     story = models.TextField(blank=False)
     notes = models.TextField(blank=True)
-    character_image = CloudinaryField('image', default='placeholder')
-    post_category = models.ForeignKey(
+    story_image = CloudinaryField('image', default='placeholder')
+    story_category = models.ForeignKey(
         Category, on_delete=models.PROTECT,
-        related_name='post_category',
+        related_name='story_category',
         null=True)
     status = models.IntegerField(choices=STATUS, default=0)
     library = models.ManyToManyField(
@@ -46,8 +58,8 @@ class Character(models.Model):
 
 
 class Comment(models.Model):
-    character = models.ForeignKey(
-        Character, on_delete=models.CASCADE,
+    story = models.ForeignKey(
+        Story, on_delete=models.CASCADE,
         related_name="comments")
     name = models.CharField(max_length=100)
     email = models.EmailField()
