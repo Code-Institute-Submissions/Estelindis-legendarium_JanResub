@@ -7,19 +7,14 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
-    CHARACTER = "Character"
-    PLACE = "Place"
-    OBJECT = "Object"
-    OTHER = "Other"
-    CATEGORY_CHOICES = [
-        (CHARACTER, "Character"),
-        (PLACE, "Place"),
-        (OBJECT, "Object"),
-        (OTHER, "Other")
-    ]
-    category_name = models.CharField(
-        max_length=50, choices=CATEGORY_CHOICES, default=CHARACTER
-    )
+    """
+    Model for story categories
+    
+    Starting categories are as follows:
+    Character, Place, Object, and Other.
+    New categories can be added by Admins.
+    """
+    category_name = models.CharField(max_length=80)
     category_pic = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
 
