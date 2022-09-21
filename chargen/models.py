@@ -23,6 +23,9 @@ class Category(models.Model):
     category_pic = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
     def __str__(self):
         return self.category_name
 
