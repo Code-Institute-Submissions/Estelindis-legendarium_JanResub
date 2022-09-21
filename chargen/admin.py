@@ -5,7 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Story)
 class StoryAdmin(SummernoteModelAdmin):
-
+    prepopulated_fields = {'slug': ('name', 'summary')}
     summernote_fields = ('story', 'notes')
 
 

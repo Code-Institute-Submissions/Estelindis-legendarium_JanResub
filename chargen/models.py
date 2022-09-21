@@ -9,7 +9,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Category(models.Model):
     """
     Model for story categories
-    
+
     Starting categories are as follows:
     Character, Place, Object, and Other.
     New categories can be added by Admins.
@@ -27,8 +27,8 @@ class Category(models.Model):
 
 class Story(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
-    summary = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+    summary = models.CharField(max_length=100)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="story_posts"
     )
