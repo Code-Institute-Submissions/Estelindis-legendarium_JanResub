@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Story
+from .forms import CommentForm
 
 
 class StoryList(generic.ListView):
@@ -26,6 +27,7 @@ class StoryDetail(View):
             {
                 "story": story,
                 "comments": comments,
-                "in_library": in_library
+                "in_library": in_library,
+                "comment_form": CommentForm()
             },
         )
