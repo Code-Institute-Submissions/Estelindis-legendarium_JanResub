@@ -37,8 +37,30 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <!-- The number of libraries goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ story.number_of_libraries }} </strong>
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'library_add' story.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if in_library %}
+
+                                <button type="submit" name="story_id" value="{{story.slug}}" class="btn-like">
+                                    <i class="fas fa-heart"></i></button>
+
+                                {% else %}
+
+                                <button type="submit" name="story_id" value="{{story.slug}}" class="btn-like">
+                                    <i class="far fa-heart"></i></button>
+
+                                {% endif %}
+
+                            </form>
+                            {% else %}
+
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}
+                            <span class="text-secondary">{{ story.number_of_libraries }}</span>
+
+                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}

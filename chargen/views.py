@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Story
 from .forms import CommentForm
 
@@ -62,3 +63,16 @@ class StoryDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+class LibraryAdd(View):
+    
+    def post(self, request, slug):
+        story = get_object_or_404(Story, slug=slug)
+        
+        if story.library.filter(id=request.user.id).exists():
+            story.library.remove(request.user)
+        else:
+            story.library.add(request.user)
+
+        return HttpResponseRedirect(reverse('story_detail', args=[slug]))
