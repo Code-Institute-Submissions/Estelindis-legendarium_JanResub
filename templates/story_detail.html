@@ -44,19 +44,19 @@
                                 {% if in_library %}
 
                                 <button type="submit" name="story_id" value="{{story.slug}}" class="btn-like">
-                                    <i class="fas fa-heart"></i></button>
+                                    <i class="bi bi-book-fill"></i></button>
 
                                 {% else %}
 
                                 <button type="submit" name="story_id" value="{{story.slug}}" class="btn-like">
-                                    <i class="far fa-heart"></i></button>
+                                    <i class="bi bi-book"></i></button>
 
                                 {% endif %}
 
                             </form>
                             {% else %}
 
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            <span class="text-secondary"><i class="bi bi-book"></i></span>
                             {% endif %}
                             <span class="text-secondary">{{ story.number_of_libraries }}</span>
 
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
+                        <strong class="text-secondary"><i class="bi bi-chat-text"></i>
                             <!-- Our total_comments variable goes before the closing strong tag -->
                             {{ total_comments }}</strong>
                         {% endwith %}
