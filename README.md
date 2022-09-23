@@ -1,7 +1,7 @@
 # Legendarium - Project Portfolio 4 - Full Stack Toolkit
 ## by Siobhán Mooney
 
-### [Click here to view the deployed app, once it's actually deployed (which it isn't yet).](https://legendarium.herokuapp.com/)
+### [Click here to view the deployed app.](https://legendarium.herokuapp.com/)
 ### [Click here to view the repository.](https://github.com/Estelindis/legendarium)
 
 # Table of Contents:
@@ -23,17 +23,18 @@
 
 
 # About the project
-Legendarium is an online character database, primarily intended for sharing RPG backstories but open to a variety of related uses.
+Legendarium is an online story database for characters, places, objects, or anything else a writer can imagine.  
 
 ## User Goals
-- Text.
-- Text.
-- Text.
+- Easily navigate a readable, accessible website from any platform.
+- Read stories without having to register or log in.
+- Have the option to register in order to comment on stories and add them to one's library (this site's version of "likes").
 
 ## Owner Goals
-- Text.
-- Text.
-- Text.
+- Present stories to users in a readable, accessible format.
+- Create, update, and delete stories.
+- Categorize stories.
+- Add images and notes to stories.
 
 # Wireframes
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
@@ -43,9 +44,9 @@ Legendarium is an online character database, primarily intended for sharing RPG 
 - Text.
 
 # Future Features
-- Text.
-- Text.
-- Text.
+- Users should be able to create, update, and delete their own stories.
+- Users should be able to view a list of stories added to their libraries.
+- Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyong the limits of the standard admin-controlled categories.
 
 # Deployment
 
@@ -63,7 +64,7 @@ Legendarium is an online character database, primarily intended for sharing RPG 
 - Go back to the tabs at the top of the page, then select the "Deploy" tab.
 - Select the Github deployment method.
 - Search for your repository name, then click the "Connect" button to link your repository.
-- At the bottom of that page, select deployment type: Automatic Deployment or Manual Deployment. Automatic Deployment will redeploy the project to Heroku every time it is pushed to GitHun. Then wait for your project to be deployed.
+- At the bottom of that page, select deployment type: Automatic or Manual. By pressing "Enable Automatic Deploys," the project will redeploy to Heroku every time it is pushed to GitHub. If Manual deployments are preferred, then choose a branch to deploy ("main" by default) and press "Deploy Branch."  In either case, there will be a short wait while the project is deployed.
 
 ## Forking the Repository on GitHub
 
@@ -85,9 +86,9 @@ Forking the GitHub repository makes a copy of the original repository on our Git
 # Used technologies and credits
 
 ## Languages
-- Text.
-- Text.
-- Text.
+- Html.
+- CSS.
+- Python (Django).
 
 ## Python Libraries
 
