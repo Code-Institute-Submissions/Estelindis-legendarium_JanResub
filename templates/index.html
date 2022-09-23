@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <div class="container-fluid">
     <div class="row">
-
         <!-- Stories Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -19,8 +16,8 @@
                                 {% else %}
                                 <img class="card-img-top" src=" {{ story.story_image.url }}">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ story.author }}</p>
+                                <div class="category-box">
+                                    <p class="category">{{ story.story_category }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'story_detail' story.slug  %}" class="story-link">
@@ -28,7 +25,7 @@
                                 <p class="card-text">{{ story.summary }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ story.created_on}} 
+                            <p class="card-text text-muted h6">By {{ story.author }}, {{ story.created_on}} 
                         </div>
                     </div>
                 </div>
@@ -37,7 +34,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
@@ -49,7 +45,6 @@
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
             {% endif %}
         </ul>
     </nav>

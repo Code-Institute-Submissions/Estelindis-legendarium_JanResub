@@ -29,6 +29,13 @@ body {
     background-color: #EFEAE2;
 }
 
+/* Unifies height of story pics in index */
+.card-img-top {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+
 .card {
     border: none;
     background-color: transparent;
@@ -38,15 +45,16 @@ body {
     position: relative;
 }
 
-.image-flash {
+.category-box {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     min-width: 30%;
-    left: -2px;
+    right: 0;
     background-color: #631b03;
+    text-align: center;
 }
 
-.author {
+.category {
     color: white;
     margin: 4px;
     text-transform: uppercase;
