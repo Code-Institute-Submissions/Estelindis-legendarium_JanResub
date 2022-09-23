@@ -25,10 +25,8 @@
     2. [Forking the Repository on GitHub](#forking-the-repository-on-github)
     3. [Cloning the Repository on GitHub](#cloning-the-repository-on-github)
 7. [Used technologies and credits](#used-technologies-and-credits)
-    1. [Languages](#languages)
-    2. [Python Libraries](#python-libraries)
-    3. [Other Technologies](#other-technologies)
-    4. [Credits](#credits)
+    1. [Technologies](#technologies)
+    2. [Credits](#credits)
 
 
 # About the project
@@ -46,15 +44,17 @@ Legendarium is an online story database for characters, places, objects, or anyt
 - Add images and notes to stories.
 
 # Design
-Legendarium was originally imagined as a database for RPG character backstories.  Its initial wireframes reflect this vision, as does the name of its "chargen" app.  However, as development continued, it was reimagined as a database for stories of all kinds.  
-
-In terms of visuals and data, Legendarium is strongly inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Using the lessons shown in that walkthrough to understand the underlying principles, various changes were made to the 
+In terms of visuals and data, Legendarium is inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Following the lessons in that walkthrough to gain understanding of the underlying principles, I made informed choices about where to retain elements, where to make partial changes, and where to add new styling and models.
 
 ## Wireframes
+Legendarium was originally imagined as a database for RPG character backstories.  Its initial wireframes reflect this vision, as does the name of its "chargen" app.  However, as development continued, it was reimagined as a database for stories of all kinds.  
+
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
 ![Desktop wireframe.](/static/images/desktop_wireframe.png)
 
 ## Data Models
+The comment model comes from the Codestar walkthrough.  The Story model is adapted from the walkthrough's Post model, to include new elements such as an optional "notes" field and categories in which stories can be placed.  As "post" is a method as well as a model in the Codestar walkthrough, care had to be taken to rename only the appropriate content.  An original Category model is added to facilitate the categorization of stories.  While categories could have been added as a choice field in the Story model, a separate Category model allows admins to CRUD categories via the admin panel, without having to change any code. 
+
 ![Data model diagram.](/static/images/data_model_diagram.jpg)
 
 # Agile Development
@@ -174,23 +174,18 @@ Forking the GitHub repository makes a copy of the original repository on our Git
 
 # Used technologies and credits
 
-## Languages
-- Html.
-- CSS.
-- Python (Django).
-
-## Python Libraries
-
-- Text.
-- Text.
-- Text.
-
-## Other Technologies
+## Technologies
+- [HTML5](https://en.wikipedia.org/wiki/HTML)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [Django](https://www.djangoproject.com/)
+- [Heroku](https://www.heroku.com)
+- [Heroku PostgreSQL](https://www.heroku.com/postgres)
+- [Cloudinary](https://cloudinary.com/)
+- [Bootstrap 5.0.1](https://getbootstrap.com/)
+- [Bootstrap Icons 1.9.1](https://icons.getbootstrap.com/)
+- [Google Fonts](https://fonts.google.com)
 - [GitHub](https://github.com/)
-- Text.
-- Text.
 
 ## Credits
-- Text.
-- Text.
 - [The Code Institute Slack](https://slack.com/) provided an invaluable database of information and community of support. I am particularly grateful to the msletb-nov-2021 cohort, our facilitator Kasia, and my mentor Darío. From my cohort, special mentions to Rhiannon McNulty and Rachel Rock, who are always ready and willing to provide feedback.
