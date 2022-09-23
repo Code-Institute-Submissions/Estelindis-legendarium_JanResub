@@ -64,7 +64,7 @@ In terms of visuals and data, Legendarium is strongly inspired by the Code Insti
 
 ## HTML Validation
 The html of the index (home page) and story_detail (individual story) pages were validated via [W3's Nu Html Checker](https://validator.w3.org/nu/).
-Both deployed links and source code text were tested.
+Both deployed links and source html were tested.
 
 ### Index, URL
 
@@ -83,8 +83,20 @@ Both deployed links and source code text were tested.
 ![Story, source.](/static/images/valid_html_source_index.jpg)
 
 ## CSS Validation
-![Mobile wireframe.](/static/images/mobile_wireframe.png)
-![Desktop wireframe.](/static/images/desktop_wireframe.png)
+The CSS of the index (home page) and story_detail (individual story) pages were validated via [W3's Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
+Both deployed links and the source style.css were tested.
+
+### Style.css, Source
+
+![Index, source.](/static/images/valid_css_source.jpg)
+
+### Index, URL
+
+![Index, URL.](/static/images/valid_css_url_index.jpg)
+
+### Story, URL
+
+![Story, URL.](/static/images/valid_css_url_index.jpg)
 
 ## Python Validation
 Some standard AUTH_PASSWORD_VALIDATORS lines from settings.py in the "legendarium" app did not pass validation.
