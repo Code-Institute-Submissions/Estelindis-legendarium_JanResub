@@ -1,6 +1,8 @@
 # Legendarium - Project Portfolio 4 - Full Stack Toolkit
 ## by Siobhán Mooney
 
+![Mobile wireframe.](/static/images/readme_responsive.jpg)
+
 ### [Click here to view the deployed app.](https://legendarium.herokuapp.com/)
 ### [Click here to view the repository.](https://github.com/Estelindis/legendarium)
 
@@ -46,7 +48,7 @@ Legendarium is an online story database for characters, places, objects, or anyt
 # Future Features
 - Users should be able to create, update, and delete their own stories.
 - Users should be able to view a list of stories added to their libraries.
-- Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyong the limits of the standard admin-controlled categories.
+- Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyond the limits of the standard admin-controlled categories.
 
 # Deployment
 
