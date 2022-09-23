@@ -26,14 +26,17 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+                <h2>{{ story.story_category }} Story</h2>
                 <!-- The story content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ story.story | safe }}
                 </p>
+                <h4>Notes</h4>
                 <p class="card-text ">
                     {{ story.notes | safe }}
                 </p>
+                <br>
                 <div class="row">
 
                     <div class="col-1">
