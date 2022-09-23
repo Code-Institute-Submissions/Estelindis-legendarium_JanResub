@@ -14,7 +14,7 @@
                                 <img class="card-img-top"
                                     src="https://i.imgur.com/UhdHZKw.jpg" alt="Placeholder image, an open book">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ story.story_image.url }}" alt="Image of {{ story.name }}, a {{ story.story_category }}">
+                                <img class="card-img-top" src=" {{ story.story_image.url }}" alt="Image of the {{ story.story_category }} named {{ story.name }}">
                                 {% endif %}
                                 <div class="category-box">
                                     <p class="category">{{ story.story_category }}</p>
