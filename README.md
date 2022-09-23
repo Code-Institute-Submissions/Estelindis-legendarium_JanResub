@@ -15,6 +15,10 @@
     2. [Data Models](#data-models)
 3. [Agile Development](#agile-development)
 4. [Testing, Bugs, and Fixes](#testing-bugs-and-fixes)
+    1. [HTML Validation](#html-validation)
+    2. [CSS Validation](#css-validation)
+    3. [Python Validation](#python-validation)
+    4. [Other Testing](#other-testing)
 5. [Future Features](#future-features)
 6. [Deployment](#deployment)
     1. [Deploying to Heroku](#deploying-to-heroku)
@@ -57,7 +61,45 @@ In terms of visuals and data, Legendarium is strongly inspired by the Code Insti
 - [Legendarium's kanban board.](https://github.com/Estelindis/legendarium/projects/1)
 
 # Testing, Bugs, and Fixes
-- Text.
+
+## HTML Validation
+![Mobile wireframe.](/static/images/mobile_wireframe.png)
+![Desktop wireframe.](/static/images/desktop_wireframe.png)
+
+## CSS Validation
+![Mobile wireframe.](/static/images/mobile_wireframe.png)
+![Desktop wireframe.](/static/images/desktop_wireframe.png)
+
+## Python Validation
+Some standard AUTH_PASSWORD_VALIDATORS lines from settings.py in the "legendarium" app did not pass validation.
+On investigating options for validating these lines, I found [a ticket discussing the topic](https://code.djangoproject.com/ticket/28163), which concluded that these lines should be kept as-is, since "fixing" them to work within the 80-character limit has disadvantages.
+
+The following Python files from the "chargen" app were validated via [PEP8 Online](http://pep8online.com/):
+admin.py; forms.py; models.py; urls.py; views.py.
+
+### Admin.py
+
+![PEP8 result for admin.py](/static/images/valid_chargen_admin_py.jpg)
+
+### Forms.py
+
+![PEP8 result for admin.py](/static/images/valid_chargen_forms_py.jpg)
+
+### Models.py
+
+![PEP8 result for admin.py](/static/images/valid_chargen_models_py.jpg)
+
+### URLS.py
+
+![PEP8 result for admin.py](/static/images/valid_chargen_urls_py.jpg)
+
+### Views.py
+
+![PEP8 result for admin.py](/static/images/valid_chargen_views_py.jpg)
+
+## Other Testing
+![Mobile wireframe.](/static/images/mobile_wireframe.png)
+![Desktop wireframe.](/static/images/desktop_wireframe.png)
 
 # Future Features
 - Users should be able to create, update, and delete their own stories.
