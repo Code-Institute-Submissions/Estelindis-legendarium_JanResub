@@ -1,7 +1,7 @@
 # Legendarium - Project Portfolio 4 - Full Stack Toolkit
 ## by Siobhán Mooney
 
-![Mobile wireframe.](/static/images/readme_responsive.jpg)
+![Image of the site on various platforms.](/static/images/readme_responsive.jpg)
 
 ### [Click here to view the deployed app.](https://legendarium.herokuapp.com/)
 ### [Click here to view the repository.](https://github.com/Estelindis/legendarium)
@@ -10,7 +10,9 @@
 1. [About the project](#about-the-project)
     1. [User Goals](#user-goals)
     2. [Owner Goals](#owner-goals)
-2. [Wireframes](#wireframes)
+2. [Design](#design)
+    1. [Wireframes](#wireframes)
+    2. [Data Models](#data-models)
 3. [Testing, Bugs, and Fixes](#testing-bugs-and-fixes)
 4. [Future Features](#future-features)
 5. [Deployment](#deployment)
@@ -38,9 +40,15 @@ Legendarium is an online story database for characters, places, objects, or anyt
 - Categorize stories.
 - Add images and notes to stories.
 
-# Wireframes
+# Design
+Design text. 
+
+## Wireframes
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
 ![Desktop wireframe.](/static/images/desktop_wireframe.png)
+
+## Data Models
+![Data model diagram.](/static/images/data_model_diagram.jpg)
 
 # Testing, Bugs, and Fixes
 - Text.
