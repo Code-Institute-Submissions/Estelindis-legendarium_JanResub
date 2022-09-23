@@ -32,7 +32,7 @@ Legendarium is an online story database for characters, places, objects, or anyt
 ## User Goals
 - Easily navigate a readable, accessible website from any platform.
 - Read stories without having to register or log in.
-- Have the option to register in order to comment on stories and add them to one's library (this site's version of "likes").
+- Register to comment on stories and add them to one's library (this site's version of "likes").
 
 ## Owner Goals
 - Present stories to users in a readable, accessible format.
@@ -56,7 +56,9 @@ Design text.
 # Future Features
 - Users should be able to create, update, and delete their own stories.
 - Users should be able to view a list of stories added to their libraries.
+- Users should be able to view stories filtered by category.
 - Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyond the limits of the standard admin-controlled categories.
+- Admins should be able to carry out all admin activities without having to access the built-in Django admin panel.  In this scenario, admin functions would appear on the front-end when admins are logged in (e.g. an admin viewing a page with comments would have the option to approve comments directly, from that page). 
 
 # Deployment
 
