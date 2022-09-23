@@ -7,9 +7,9 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in story.story_image.url %}
-                <img src="/static/images/other.jpg" width="100%">
+                <src="https://i.imgur.com/UhdHZKw.jpg" alt="Placeholder image, an open book" width="100%">
                 {% else %}
-                <img src=" {{ story.story_image.url }}" width="100%">
+                <img src=" {{ story.story_image.url }}" alt="Image of {{ story.name }}, a {{ story.story_category }}"width="100%">
                 {% endif %}
             </div>
             <div class="col-md-6 masthead-text">
