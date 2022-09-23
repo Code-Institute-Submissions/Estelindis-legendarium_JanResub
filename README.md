@@ -196,4 +196,5 @@ Forking the GitHub repository makes a copy of the original repository on our Git
 - [GitHub](https://github.com/)
 
 ## Credits
+- The Code Institute's Codestar blog walkthrough project provided development guidance and instruction, demonstrating how to create a site in Django and providing a great starting point from which to add and elaborate my own content.
 - [The Code Institute Slack](https://slack.com/) provided an invaluable database of information and community of support. I am particularly grateful to the msletb-nov-2021 cohort, our facilitator Kasia, and my mentor Darío. From my cohort, special mentions to Rhiannon McNulty and Rachel Rock, who are always ready and willing to provide feedback.
