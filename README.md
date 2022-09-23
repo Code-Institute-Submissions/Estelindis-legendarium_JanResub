@@ -58,7 +58,15 @@ The comment model comes from the Codestar walkthrough.  The Story model is adapt
 ![Data model diagram.](/static/images/data_model_diagram.jpg)
 
 # Agile Development
-- [Legendarium's kanban board.](https://github.com/Estelindis/legendarium/projects/1)
+Legendarium was developed using agile methods, with the help of a [GitHub kanban board](https://github.com/Estelindis/legendarium/projects/1).
+
+- Once tasks were identified, issues were added to the "to do" column.
+- All tasks were labelled "must-have" or "could-have."  Must-have tasks were begun and completed preferentially.  As not every imagined feature can generally be completed with a project's timeframe, it is important to work on tasks in order of priority.
+- When a task was being worked on, it was moved to the "in progress" column.
+- Once sufficient content had been developed and tested to address the task, it was moved to the "done" column.
+- Four tasks remain in the "to do" column, representing some of the possible future tasks that could be undertaken in a cloned version of the project.  All uncompleted tasks have the "could-have" label, while no "must-have" features remained unfinished.
+
+![Index, URL.](/static/images/readme_kanban.jpg)
 
 # Testing, Bugs, and Fixes
 
