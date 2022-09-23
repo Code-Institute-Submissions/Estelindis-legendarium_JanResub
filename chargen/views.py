@@ -41,7 +41,7 @@ class StoryDetail(View):
         in_library = False
         if story.library.filter(id=self.request.user.id).exists():
             in_library = True
-        
+
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -66,10 +66,10 @@ class StoryDetail(View):
 
 
 class LibraryAdd(View):
-    
+
     def post(self, request, slug):
         story = get_object_or_404(Story, slug=slug)
-        
+
         if story.library.filter(id=request.user.id).exists():
             story.library.remove(request.user)
         else:
