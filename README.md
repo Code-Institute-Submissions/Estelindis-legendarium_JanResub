@@ -7,19 +7,20 @@
 ### [Click here to view the repository.](https://github.com/Estelindis/legendarium)
 
 # Table of Contents:
-1. [About the project](#about-the-project)
+1. [About the Project](#about-the-project)
     1. [User Goals](#user-goals)
     2. [Owner Goals](#owner-goals)
 2. [Design](#design)
     1. [Wireframes](#wireframes)
     2. [Data Models](#data-models)
-3. [Testing, Bugs, and Fixes](#testing-bugs-and-fixes)
-4. [Future Features](#future-features)
-5. [Deployment](#deployment)
+3. [Agile Development](#agile-development)
+4. [Testing, Bugs, and Fixes](#testing-bugs-and-fixes)
+5. [Future Features](#future-features)
+6. [Deployment](#deployment)
     1. [Deploying to Heroku](#deploying-to-heroku)
     2. [Forking the Repository on GitHub](#forking-the-repository-on-github)
     3. [Cloning the Repository on GitHub](#cloning-the-repository-on-github)
-6. [Used technologies and credits](#used-technologies-and-credits)
+7. [Used technologies and credits](#used-technologies-and-credits)
     1. [Languages](#languages)
     2. [Python Libraries](#python-libraries)
     3. [Other Technologies](#other-technologies)
@@ -41,7 +42,9 @@ Legendarium is an online story database for characters, places, objects, or anyt
 - Add images and notes to stories.
 
 # Design
-Design text. 
+Legendarium was originally imagined as a database for RPG character backstories.  Its initial wireframes reflect this vision, as does the name of its "chargen" app.  However, as development continued, it was reimagined as a database for stories of all kinds.  
+
+In terms of visuals and data, Legendarium is strongly inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Using the lessons shown in that walkthrough to understand the underlying principles, various changes were made to the 
 
 ## Wireframes
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
@@ -49,6 +52,9 @@ Design text.
 
 ## Data Models
 ![Data model diagram.](/static/images/data_model_diagram.jpg)
+
+# Agile Development
+- [Legendarium's kanban board.](https://github.com/Estelindis/legendarium/projects/1)
 
 # Testing, Bugs, and Fixes
 - Text.
