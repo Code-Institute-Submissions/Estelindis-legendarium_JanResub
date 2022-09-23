@@ -63,8 +63,24 @@ In terms of visuals and data, Legendarium is strongly inspired by the Code Insti
 # Testing, Bugs, and Fixes
 
 ## HTML Validation
-![Mobile wireframe.](/static/images/mobile_wireframe.png)
-![Desktop wireframe.](/static/images/desktop_wireframe.png)
+The html of the index (home page) and story_detail (individual story) pages were validated via [W3's Nu Html Checker](https://validator.w3.org/nu/).
+Both deployed links and source code text were tested.
+
+### Index, URL
+
+![Index, URL.](/static/images/valid_html_url_index.jpg)
+
+### Index, Source
+
+![Index, source.](/static/images/valid_html_source_index.jpg)
+
+### Story, URL
+
+![Story, URL.](/static/images/valid_html_url_index.jpg)
+
+### Story, Source
+
+![Story, source.](/static/images/valid_html_source_index.jpg)
 
 ## CSS Validation
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
@@ -98,8 +114,9 @@ admin.py; forms.py; models.py; urls.py; views.py.
 ![PEP8 result for admin.py](/static/images/valid_chargen_views_py.jpg)
 
 ## Other Testing
-![Mobile wireframe.](/static/images/mobile_wireframe.png)
-![Desktop wireframe.](/static/images/desktop_wireframe.png)
+- Text.
+- Text.
+- Text.
 
 # Future Features
 - Users should be able to create, update, and delete their own stories.
