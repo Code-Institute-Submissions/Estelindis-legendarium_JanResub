@@ -235,6 +235,16 @@ On following these steps, did the expected results occur?
 - Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyond the limits of the standard admin-controlled categories.
 - Admins should be able to carry out all admin activities without having to access the built-in Django admin panel.  In this scenario, admin functions would appear on the front-end when admins are logged in (e.g. an admin viewing a page with comments would have the option to approve comments directly, from that page). 
 
+## Progress Towards Future Features
+
+- Some preliminary attempts were made to display a list of stories a user has added to their library.  While some success was achieved at returning a list,it did not attain a user-friendly form within the time period for the project.
+
+![Future feature library display](/static/images/future_feature01.jpg)
+
+- Some effort was made to investigate methods to let users add their own stories.  However, in spite of the image field being included in the form to add a story, user-uploaded stories only ever displayed placeholder images.  Further investigation will be needed to develop this feature.
+
+![Future feature library display](/static/images/future_feature02.jpg)
+
 # Deployment
 
 ## Deploying to Heroku
