@@ -34,6 +34,8 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['legendarium.herokuapp.com', 'localhost']
 
+# This setting added to fix an Error 500 when users register with email 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Application definition
 
