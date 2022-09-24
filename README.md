@@ -5,6 +5,7 @@
 
 ### [Click here to view the deployed app.](https://legendarium.herokuapp.com/)
 ### [Click here to view the repository.](https://github.com/Estelindis/legendarium)
+### [Click here to view agile board.](https://github.com/Estelindis/legendarium/projects/1)
 
 # Table of Contents:
 1. [About the Project](#about-the-project)
@@ -150,7 +151,11 @@ To test this functionality, an unregistered user follows these steps:
 - Return to browsing via the navbar, which is always accessible via its fixed position.
 
 On following these steps, did the expected results occur?
-- Yes, tests passed.
+- Yes, tests passed, as the following images show.  The index is shown in desktop view, which clearly demonstrates that the user is not logged in.  A further screenshot of a story detail page is also provided, this time in tablet view.  Text is legible.  Colours provide sufficient contrast for accessibility, yet fade from view to allow content to take the foreground.
+
+![Index, desktop view](/static/images/screenshot_index.jpg)
+
+![Story detail, tablet view](/static/images/screenshot_story_detail.jpg)
 
 ### Goal: User Registration
 - (User) Register to comment on stories and add them to one's library.
