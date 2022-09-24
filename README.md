@@ -18,7 +18,7 @@
     1. [HTML Validation](#html-validation)
     2. [CSS Validation](#css-validation)
     3. [Python Validation](#python-validation)
-    4. [Other Testing](#other-testing)
+    4. [Manual Testing](#manual-testing)
 5. [Future Features](#future-features)
 6. [Deployment](#deployment)
     1. [Deploying to Heroku](#deploying-to-heroku)
@@ -40,8 +40,8 @@ Legendarium is an online story database for characters, places, objects, or anyt
 ## Owner Goals
 - Present stories to users in a readable, accessible format.
 - Create, update, and delete stories.
-- Categorize stories.
-- Add images and notes to stories.
+- Include features like images, notes, and categories in stories.
+- Save stories as drafts if they are not yet ready for publication.
 
 # Design
 In terms of visuals and data, Legendarium is inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Following the lessons in that walkthrough to gain understanding of the underlying principles, I made informed choices about where to retain elements, where to make partial changes, and where to add new styling and models.
@@ -133,10 +133,56 @@ admin.py; forms.py; models.py; urls.py; views.py.
 
 ![PEP8 result for admin.py](/static/images/valid_chargen_views_py.jpg)
 
-## Other Testing
-- Text.
-- Text.
-- Text.
+## Manual Testing
+User and owner goals were tested to ensure that the aims of the project were achieved.
+
+### Goal: Accessible Content
+This condenses the following goals:
+- (User) Easily navigate a readable, accessible website from any platform.
+- (User) Read stories without having to register or log in.
+- (Owner) Present stories to users in a readable, accessible format.
+
+To test this functionality, an unregistered user follows these steps:
+- Navigate to Legendarium.
+- Broswe stories by scrolling down (and, if desired, navigating to the next pages of stories).
+- Click or press on the name of a story to read the individual story.
+- Return to browsing via the navbar, which is always accessible via its fixed position.
+
+On following these steps, did the expected results occur?
+- Yes, as the following images show. Tests passed.
+
+### Goal: User Registration
+- (User) Register to comment on stories and add them to one's library.
+
+To test this functionality, a user follows these steps:
+- Navigate to Legendarium.
+- Click or press Register in the navbar.
+- Input a username and password (email is optional).
+- On successful registration, the user is now logged in.
+- The logged in user can freely add and remove stories from their library (a "like" system).
+- The logged in user can also comment on posts, after which a message states the comment is awaiting approval.
+- The logged in user can sign out by clicking/pressing Logout in the navbar. After confirming, the user is successfully logged out.
+
+On following these steps, did the expected results occur?
+- Yes, as the following images show. Tests passed.
+
+### Goal: Manage Stories
+This condenses the following goals:
+- (Owner) Create, update, and delete stories.
+- (Owner) Include features like images, notes, and categories in stories.
+- (Owner) Save stories as drafts if they are not yet ready for publication.
+
+To test this functionality, a user follows these steps:
+- Navigate to the Legendarium Admin area.
+- Log in as an Admin.
+- Under the "chargen" heading, in the Stories row, click or press Add.
+- Fill in the required fields of the story form, including name. The form shows that notes and an image can be added, but are not required.
+- A story's default status is Draft.  The story can be saved as a Draft, to be edited at leisure, or can be set to Published immediately.
+- Click/press Save in the bottom right corner.  The story has now been created.
+- Return to the non-admin site by pressing/clicking View Site in the top right. If the story was saved as Draft, it will not be seen in the index. If it was saved as Published, it will appear immediately among the other stories.
+
+On following these steps, did the expected results occur?
+- Yes, as the following images show. Tests passed.
 
 # Future Features
 - Users should be able to create, update, and delete their own stories.
