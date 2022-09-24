@@ -64,7 +64,8 @@ Legendarium was developed using agile methods, with the help of a [GitHub kanban
 - All tasks were labelled "must-have" or "could-have."  Must-have tasks were begun and completed preferentially.  As not every imagined feature can generally be completed with a project's timeframe, it is important to work on tasks in order of priority.
 - When a task was being worked on, it was moved to the "in progress" column.
 - Once sufficient content had been developed and tested to address the task, it was moved to the "done" column.
-- Four tasks remain in the "to do" column, representing some of the possible future tasks that could be undertaken in a cloned version of the project.  All uncompleted tasks have the "could-have" label, while no "must-have" features remained unfinished.
+- At the end of the project work period, unfinished items were moved to a new category for future development.  This represents some of the possible future tasks that could be undertaken in a cloned version of the project.  
+- All uncompleted tasks have the "could-have" label, while no "must-have" features remained unfinished.
 
 ![Index, URL.](/static/images/readme_kanban.jpg)
 
@@ -237,7 +238,7 @@ On following these steps, did the expected results occur?
 
 ## Progress Towards Future Features
 
-- Some preliminary attempts were made to display a list of stories a user has added to their library.  While some success was achieved at returning a list,it did not attain a user-friendly form within the time period for the project.
+- Some preliminary attempts were made to display a list of stories a user has added to their library.  While some success was achieved at returning a list, it did not attain a user-friendly form within the time period for the project.
 
 ![Future feature library display](/static/images/future_feature01.jpg)
 
@@ -261,7 +262,8 @@ On following these steps, did the expected results occur?
 - Go back to the tabs at the top of the page, then select the "Deploy" tab.
 - Select the Github deployment method.
 - Search for your repository name, then click the "Connect" button to link your repository.
-- At the bottom of that page, select deployment type: Automatic or Manual. By pressing "Enable Automatic Deploys," the project will redeploy to Heroku every time it is pushed to GitHub. If Manual deployments are preferred, then choose a branch to deploy ("main" by default) and press "Deploy Branch."  In either case, there will be a short wait while the project is deployed.
+- At the bottom of that page, select deployment type: Automatic or Manual. By pressing "Enable Automatic Deploys," the project will redeploy to Heroku every time it is pushed to GitHub. If Manual deployments are preferred, then choose a branch to deploy ("main" by default) and press "Deploy Branch."  In either case, there will be a short wait while the project is deployed.  
+- Broadly speaking, manual deployment is preferred for this kind of project, so that DEBUG in settings.py can be set to True during development but False during deployment.
 
 ## Forking the Repository on GitHub
 
@@ -296,5 +298,5 @@ Forking the GitHub repository makes a copy of the original repository on our Git
 - [GitHub](https://github.com/)
 
 ## Credits
-- The Code Institute's Codestar blog walkthrough provided development guidance and instruction, demonstrating how to create a site in Django and providing a starting point from which to add and elaborate my own content.
+- The Code Institute's Codestar blog walkthrough provided development guidance and instruction, demonstrating how to create a site in Django and providing a starting point from which to add and elaborate further content.
 - [The Code Institute Slack](https://slack.com/) provided an invaluable database of information and community of support. I am particularly grateful to the msletb-nov-2021 cohort, our facilitator Kasia, and my mentor Darío.
