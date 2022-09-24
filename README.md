@@ -53,7 +53,7 @@ Legendarium was originally imagined as a database for RPG character backstories.
 ![Desktop wireframe.](/static/images/desktop_wireframe.png)
 
 ## Data Models
-The comment model comes from the Codestar walkthrough.  The Story model is adapted from the walkthrough's Post model, to include new elements such as an optional "notes" field and categories in which stories can be placed.  As "post" is a method as well as a model in the Codestar walkthrough, care had to be taken to rename only the appropriate content.  An original Category model is added to facilitate the categorization of stories.  While categories could have been added as a choice field in the Story model, a separate Category model allows admins to CRUD categories via the admin panel, without having to change any code. 
+The comment model follows the Codestar walkthrough.  The Story model is adapted from the walkthrough's Post model, to include new elements such as an optional "notes" field and categories in which stories can be placed.  As "post" is a method as well as a model in the Codestar walkthrough, care had to be taken to adapt only the appropriate content.  An original Category model is added to facilitate the categorization of stories.  While categories could have been added as a choice field in the Story model, a separate Category model allows admins to CRUD categories via the admin panel, without having to change any code.  Category images are not in use in the live site at present, but their functionality exists to facilitate future development in which stories could be filtered by category.  Associating each category with an image would make this task more pleasing at the UI level.
 
 ![Data model diagram.](/static/images/data_model_diagram.jpg)
 
@@ -145,11 +145,11 @@ This condenses the following goals:
 To test this functionality, an unregistered user follows these steps:
 - Navigate to Legendarium.
 - Broswe stories by scrolling down (and, if desired, navigating to the next pages of stories).
-- Click or press on the name of a story to read the individual story.
+- Click or press on the name of a story to read the individual story.  This provides the user reading functionality.
 - Return to browsing via the navbar, which is always accessible via its fixed position.
 
 On following these steps, did the expected results occur?
-- Yes, as the following images show. Tests passed.
+- Yes, tests passed.
 
 ### Goal: User Registration
 - (User) Register to comment on stories and add them to one's library.
@@ -159,12 +159,24 @@ To test this functionality, a user follows these steps:
 - Click or press Register in the navbar.
 - Input a username and password (email is optional).
 - On successful registration, the user is now logged in.
-- The logged in user can freely add and remove stories from their library (a "like" system).
-- The logged in user can also comment on posts, after which a message states the comment is awaiting approval.
+- The logged in user can freely add and remove stories from their library (a "like" system).  This provides updating/deleting functionality.
+- The logged in user can also create comments on posts, after which a message states the comment is awaiting approval.  This provides the user with creating functionality.
 - The logged in user can sign out by clicking/pressing Logout in the navbar. After confirming, the user is successfully logged out.
 
 On following these steps, did the expected results occur?
-- Yes, as the following images show. Tests passed.
+- Yes, tests passed, as the following images show.
+
+![Manual testing screenshot 01_01](/static/images/test01_01.jpg)
+
+![Manual testing screenshot 01_02](/static/images/test01_02.jpg)
+
+![Manual testing screenshot 01_03](/static/images/test01_03.jpg)
+
+![Manual testing screenshot 01_03a](/static/images/test01_03a.jpg)
+
+![Manual testing screenshot 01_03b](/static/images/test01_03b.jpg)
+
+![Manual testing screenshot 01_04](/static/images/test01_04.jpg)
 
 ### Goal: Manage Stories
 This condenses the following goals:
@@ -172,9 +184,8 @@ This condenses the following goals:
 - (Owner) Include features like images, notes, and categories in stories.
 - (Owner) Save stories as drafts if they are not yet ready for publication.
 
-To test this functionality, a user follows these steps:
-- Navigate to the Legendarium Admin area.
-- Log in as an Admin.
+To test Create functionality, an admin follows these steps:
+- Navigate to the Legendarium Admin area and log in as an Admin.
 - Under the "chargen" heading, in the Stories row, click or press Add.
 - Fill in the required fields of the story form, including name. The form shows that notes and an image can be added, but are not required.
 - A story's default status is Draft.  The story can be saved as a Draft, to be edited at leisure, or can be set to Published immediately.
@@ -182,7 +193,40 @@ To test this functionality, a user follows these steps:
 - Return to the non-admin site by pressing/clicking View Site in the top right. If the story was saved as Draft, it will not be seen in the index. If it was saved as Published, it will appear immediately among the other stories.
 
 On following these steps, did the expected results occur?
-- Yes, as the following images show. Tests passed.
+- Yes, tests passed, as the following images show.
+
+![Manual testing screenshot 01_01](/static/images/test03_01.jpg)
+
+![Manual testing screenshot 01_02](/static/images/test03_02.jpg)
+
+![Manual testing screenshot 01_03](/static/images/test03_03.jpg)
+
+To test Update functionality, an admin follows these steps:
+- Navigate to the Legendarium Admin area and log in as an Admin.
+- Under the "chargen" heading, in the Stories row, click or press Change.
+- Click or press the name of the story to change.  Previously created content for that story can now be edited.
+- Once saved, changes to the story will be visible on the live site if that story is Published.
+
+On following these steps, did the expected results occur?
+- Yes, tests passed, as the following image shows. Most images of story editing are not notably distinct from new story creation, but this image shows a record of changes to stories.
+
+![Manual testing screenshot 01_01](/static/images/test03_07.jpg)
+
+To test Delete functionality, an admin follows these steps:
+- Navigate to the Legendarium Admin area and log in as an Admin.
+- Under the "chargen" heading, in the Stories row, click or press Change.
+- Select stories via the checkbox beside each name in the list. If many stories are present, the list can be filtered via the search bar.
+- Once one or more stories are selected, choose "delete selected stories" from the Action dropdown menu. The deletion can then be confirmed or cancelled.
+- Once deleted, a Published story that was previously visible on the live site can no longer be viewed.
+
+On following these steps, did the expected results occur?
+- Yes, tests passed, as the following images show.
+
+![Manual testing screenshot 01_01](/static/images/test03_04.jpg)
+
+![Manual testing screenshot 01_02](/static/images/test03_05.jpg)
+
+![Manual testing screenshot 01_03](/static/images/test03_06.jpg)
 
 # Future Features
 - Users should be able to create, update, and delete their own stories.
@@ -242,5 +286,5 @@ Forking the GitHub repository makes a copy of the original repository on our Git
 - [GitHub](https://github.com/)
 
 ## Credits
-- The Code Institute's Codestar blog walkthrough project provided development guidance and instruction, demonstrating how to create a site in Django and providing a great starting point from which to add and elaborate my own content.
-- [The Code Institute Slack](https://slack.com/) provided an invaluable database of information and community of support. I am particularly grateful to the msletb-nov-2021 cohort, our facilitator Kasia, and my mentor Darío. From my cohort, special mentions to Rhiannon McNulty and Rachel Rock, who are always ready and willing to provide feedback.
+- The Code Institute's Codestar blog walkthrough provided development guidance and instruction, demonstrating how to create a site in Django and providing a starting point from which to add and elaborate my own content.
+- [The Code Institute Slack](https://slack.com/) provided an invaluable database of information and community of support. I am particularly grateful to the msletb-nov-2021 cohort, our facilitator Kasia, and my mentor Darío.
