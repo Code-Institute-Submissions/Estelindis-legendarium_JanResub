@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect
-from .models import Story
-from .forms import CommentForm
+from django.http import HttpResponseRedirect, HttpResponse
+from django.utils.text import slugify
+from .models import Story, Category
+from .forms import CategoryForm, CommentForm
 
 
 class StoryList(generic.ListView):
@@ -76,3 +77,31 @@ class LibraryAdd(View):
             story.library.add(request.user)
 
         return HttpResponseRedirect(reverse('story_detail', args=[slug]))
+
+
+class CategoryView(View):
+
+    def get(self, request, id, *args, **kwargs):
+        categories = Category.objects.all()
+        category = get_object_or_404(categories, pk=id)
+        form = CategoryForm(instance=category)
+        template = 'add_category.html'
+        context = {
+            'form': form,
+            'categories': categories,
+            'id': id,
+        }
+        return render(request, template, context)
+
+    def post(self, request, *args, **kwargs):
+        form = CategoryForm(data=request.POST)
+        if form.is_valid():
+            form.instance.slug = slugify(form.instance.category_name)
+            category = form.save(commit=False)
+            category.save()
+            return HttpResponseRedirect(reverse('add_category'))
+        template = 'add_category.html'
+        context = {
+            'form': form,
+        }
+        return render(request, template, context)
