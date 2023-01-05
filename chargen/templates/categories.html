@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4">Categories</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- We want a for loop inside the empty control tags to iterate through each category in categories -->
+        {% for category in category_list %}
+        <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+                <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                {{ category.category_name }}
+                <a class="btn btn-outline-black rounded-0" href="{% url 'category_edit' pk=category.id %}">Edit</a>
+            </p>
+        </div>
+        <!-- Our for loop ends here -->
+        {% endfor %}
+    </div>
+{% endblock %}

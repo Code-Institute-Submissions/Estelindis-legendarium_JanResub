@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.text import slugify
+from django.urls import reverse,reverse_lazy
 from .models import Story, Category
 from .forms import CategoryForm, CommentForm
 
@@ -79,29 +81,48 @@ class LibraryAdd(View):
         return HttpResponseRedirect(reverse('story_detail', args=[slug]))
 
 
-class CategoryView(View):
+# class CategoryView(View):
 
-    def get(self, request, id, *args, **kwargs):
-        categories = Category.objects.all()
-        category = get_object_or_404(categories, pk=id)
-        form = CategoryForm(instance=category)
-        template = 'add_category.html'
-        context = {
-            'form': form,
-            'categories': categories,
-            'id': id,
-        }
-        return render(request, template, context)
+#     def get(self, request, id, *args, **kwargs):
+#         categories = Category.objects.all()
+#         category = get_object_or_404(categories, pk=id)
+#         form = CategoryForm(instance=category)
+#         template = 'add_category.html'
+#         context = {
+#             'form': form,
+#             'categories': categories,
+#             'id': id,
+#         }
+#         return render(request, template, context)
 
-    def post(self, request, *args, **kwargs):
-        form = CategoryForm(data=request.POST)
-        if form.is_valid():
-            form.instance.slug = slugify(form.instance.category_name)
-            category = form.save(commit=False)
-            category.save()
-            return HttpResponseRedirect(reverse('add_category'))
-        template = 'add_category.html'
-        context = {
-            'form': form,
-        }
-        return render(request, template, context)
+#     def post(self, request, *args, **kwargs):
+#         form = CategoryForm(data=request.POST)
+#         if form.is_valid():
+#             form.instance.slug = slugify(form.instance.category_name)
+#             category = form.save(commit=False)
+#             category.save()
+#             return HttpResponseRedirect(reverse('add_category'))
+#         template = 'add_category.html'
+#         context = {
+#             'form': form,
+#         }
+#         return render(request, template, context)
+
+
+class CategoryList(generic.ListView):
+    model = Category
+    queryset = Category.objects.all()
+    template_name = "categories.html"
+
+
+class CategoryEdit(generic.edit.UpdateView):
+    model = Category
+    fields = ('category_name', 'category_pic',)
+    template_name_suffix = '_update'
+    success_url = reverse_lazy('category_list')
+
+
+# class CategoryDelete(DeleteView):
+#     model = Category
+#     success_url = reverse_lazy('category_list')
+
