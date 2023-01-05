@@ -122,7 +122,7 @@ class CategoryEdit(generic.edit.UpdateView):
     success_url = reverse_lazy('category_list')
 
 
-# class CategoryDelete(DeleteView):
-#     model = Category
-#     success_url = reverse_lazy('category_list')
+class CategoryDelete(DeleteView):
+    model = Category
+    success_url = reverse_lazy('category_list')
 

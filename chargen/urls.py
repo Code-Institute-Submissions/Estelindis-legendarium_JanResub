@@ -6,6 +6,8 @@ urlpatterns = [
     path('categories/', views.CategoryList.as_view(), name='category_list'),
     path('categories/edit/<int:pk>/', views.CategoryEdit.as_view(), 
         name='category_edit'),
+    path('categories/delete/<int:pk>/', views.CategoryDelete.as_view(), 
+        name='category_delete'),
     path('<slug:slug>/', views.StoryDetail.as_view(), name='story_detail'),
     path(
         'library/<slug:slug>', views.LibraryAdd.as_view(),

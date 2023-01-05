@@ -19,6 +19,7 @@
                 <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                 {{ category.category_name }}
                 <a class="btn btn-outline-black rounded-0" href="{% url 'category_edit' pk=category.id %}">Edit</a>
+                <a class="btn btn-outline-black rounded-0" href="{% url 'category_delete' pk=category.id %}">Delete</a>
             </p>
         </div>
         <!-- Our for loop ends here -->
