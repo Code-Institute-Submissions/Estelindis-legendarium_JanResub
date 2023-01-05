@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.text import slugify
 from django.urls import reverse,reverse_lazy
@@ -125,4 +125,16 @@ class CategoryEdit(generic.edit.UpdateView):
 class CategoryDelete(DeleteView):
     model = Category
     success_url = reverse_lazy('category_list')
+
+
+class CategoryCreate(CreateView):
+    model = Category
+    fields = ('category_name', 'category_pic',)
+    template_name_suffix = '_create'
+    success_url = reverse_lazy('category_list')
+
+    def form_valid(self, form):
+        form.instance.slug = slugify(form.instance.category_name)
+
+        return super().form_valid(form)
 
