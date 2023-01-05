@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
+from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.urls import reverse,reverse_lazy
 from .models import Story, Category
@@ -121,10 +122,23 @@ class CategoryEdit(generic.edit.UpdateView):
     template_name_suffix = '_update'
     success_url = reverse_lazy('category_list')
 
+    def form_valid(self, form):
+        if not self.request.user.is_superuser:
+            raise PermissionDenied
+
+        return super().form_valid(form)
+
+
 
 class CategoryDelete(DeleteView):
     model = Category
     success_url = reverse_lazy('category_list')
+
+    # def form_valid(self, form):
+    #     if not self.request.user.is_superuser:
+    #         raise PermissionDenied
+
+    #     return super().form_valid(form)
 
 
 class CategoryCreate(CreateView):
@@ -135,6 +149,8 @@ class CategoryCreate(CreateView):
 
     def form_valid(self, form):
         form.instance.slug = slugify(form.instance.category_name)
+        if not self.request.user.is_superuser:
+            raise PermissionDenied
 
         return super().form_valid(form)
 
