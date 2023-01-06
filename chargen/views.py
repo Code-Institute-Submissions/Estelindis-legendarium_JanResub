@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
-from django.urls import reverse,reverse_lazy
+from django.urls import reverse, reverse_lazy
 from .models import Story, Category
 from .forms import CategoryForm, CommentForm
 
@@ -14,6 +14,21 @@ class StoryList(generic.ListView):
     queryset = Story.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
+
+
+class StoryCreate(CreateView):
+    model = Story
+    fields = ('name', 'summary', 'story', 'notes', 'story_image', 'story_category', 'status')
+    template_name_suffix = '_create'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.slug = slugify(form.instance.name + "-" + form.instance.summary)
+        form.instance.author = self.request.user
+        # if not self.request.user.is_superuser:
+        #     raise PermissionDenied
+
+        return super().form_valid(form)
 
 
 class StoryDetail(View):
@@ -127,7 +142,6 @@ class CategoryEdit(generic.edit.UpdateView):
             raise PermissionDenied
 
         return super().form_valid(form)
-
 
 
 class CategoryDelete(DeleteView):
