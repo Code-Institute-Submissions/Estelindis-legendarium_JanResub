@@ -9,6 +9,47 @@ from .models import Story, Category
 from .forms import CategoryForm, CommentForm
 
 
+# class LibraryList(generic.ListView):
+#     model = Story
+#     username = self.request.user
+#     stories_in_lib = username.story_library.all()
+#     queryset = stories_in_lib
+#     template_name = "library.html"
+
+
+# class LibraryView(CreateView):
+
+#     def get(self, request, *args, **kwargs):
+#         user_lib = Story.objects.filter(story_library=request.user)
+#         return render(
+#             request, 'library.html', {
+#                 'user_lib': user_lib,
+#             })
+
+
+# class StoryLibrary(View):
+
+#     def get(self, request, *args, **kwargs):
+#         user_stories_in_lib = self.request.user.story_library.all()
+#         return render(
+#             request,
+#             "library.html",
+#             {
+#                 "user_stories_in_lib": user_stories_in_lib,
+#             },
+#         )
+
+#     def post(self, request, *args, **kwargs):
+#          user_stories_in_lib = self.request.user.story_library.all()
+#          return render(
+#             request,
+#             "library.html",
+#             {
+#                 "user_stories_in_lib": user_stories_in_lib,
+#             },
+#         )
+
+
 class StoryList(generic.ListView):
     model = Story
     queryset = Story.objects.filter(status=1).order_by("-created_on")

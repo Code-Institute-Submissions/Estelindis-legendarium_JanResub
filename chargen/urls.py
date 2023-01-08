@@ -9,7 +9,7 @@ urlpatterns = [
     path('categories/create/', views.CategoryCreate.as_view(), name='category_create'),
     path('stories/create/', views.StoryCreate.as_view(), name='story_create'),
     path('<slug:slug>/', views.StoryDetail.as_view(), name='story_detail'),
-    path(
-        'library/<slug:slug>', views.LibraryAdd.as_view(),
-        name='library_add'),
+    path('library/<slug:slug>', views.LibraryAdd.as_view(), name='library_add'),
+    # path('library/view/', views.LibraryList.as_view(), name='library_view'),
+    # path("library/", views.StoryLibrary.as_view(), name="library"),
 ]
