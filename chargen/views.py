@@ -9,12 +9,15 @@ from .models import Story, Category
 from .forms import CategoryForm, CommentForm
 
 
-# class LibraryList(generic.ListView):
-#     model = Story
-#     username = self.request.user
-#     stories_in_lib = username.story_library.all()
-#     queryset = stories_in_lib
-#     template_name = "library.html"
+class LibraryList(generic.ListView):
+    model = Story
+    
+    def get_user_library(self, request):
+        username = self.request.user
+        stories_in_lib = username.story_library.all()
+        return stories_in_lib
+
+    template_name = "library.html"
 
 
 # class LibraryView(CreateView):
