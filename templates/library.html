@@ -13,10 +13,10 @@
             </div>
         </div>
         <!-- We want a for loop inside the empty control tags to iterate through each story in the library -->
-        {% for story in library %}
+        {% for story in object_list %}
         <div class="comments" style="padding: 10px;">
             <p class="font-weight-bold">
-                <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                <!-- The story's name goes here. Check the model if you're not sure what that is -->
                 {{ story.name }}
             </p>
         </div>
