@@ -1,26 +1,41 @@
 {% extends "base.html" %}
-{% load static %}
-{% load crispy_forms_tags %}
-
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <hr>
-                <h2 class="logo-font mb-4">Library</h2>
-                <hr>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Stories Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for story in object_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in story.story_image.url %}
+                                <img class="card-img-top"
+                                    src="https://i.imgur.com/UhdHZKw.jpg" alt="Placeholder image, an open book">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ story.story_image.url }}" alt="Image of the {{ story.story_category }} named {{ story.name }}">
+                                {% endif %}
+                                <div class="category-box">
+                                    <p class="category">{{ story.story_category }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'story_detail' story.slug  %}" class="story-link">
+                                <h2 class="card-name">{{ story.name }}</h2>
+                                <p class="card-text">{{ story.summary }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6">By {{ story.author }}, {{ story.created_on}} 
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
-        <!-- We want a for loop inside the empty control tags to iterate through each story in the library -->
-        {% for story in object_list %}
-        <div class="comments" style="padding: 10px;">
-            <p class="font-weight-bold">
-                <!-- The story's name goes here. Check the model if you're not sure what that is -->
-                {{ story.name }}
-            </p>
-        </div>
-        <!-- Our for loop ends here -->
-        {% endfor %}
     </div>
-{% endblock %}
+</div>
+{%endblock%}
