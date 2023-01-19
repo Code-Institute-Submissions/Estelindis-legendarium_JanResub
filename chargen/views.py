@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.exceptions import PermissionDenied
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.text import slugify
 from django.urls import reverse, reverse_lazy
 from .models import Story, Category
@@ -60,7 +61,11 @@ class StoryList(generic.ListView):
     paginate_by = 6
 
 
-class StoryCreate(CreateView):
+class StoryCreate(LoginRequiredMixin, CreateView):
+    """
+    To access this template, a user must be logged in.
+    Via a form, a user can add a story to the database.
+    """
     model = Story
     fields = ('name', 'summary', 'story', 'notes', 'story_image', 'story_category', 'status')
     template_name_suffix = '_create'
@@ -69,8 +74,6 @@ class StoryCreate(CreateView):
     def form_valid(self, form):
         form.instance.slug = slugify(form.instance.name + "-" + form.instance.summary)
         form.instance.author = self.request.user
-        # if not self.request.user.is_superuser:
-        #     raise PermissionDenied
 
         return super().form_valid(form)
 
