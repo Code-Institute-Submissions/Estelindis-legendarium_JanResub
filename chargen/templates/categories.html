@@ -25,10 +25,14 @@
                                 {% else %}
                                 <img class="card-img-top" src=" {{ category.category_pic.url }}" alt="Image of the category named {{ category.category_name }}">
                                 {% endif %}
+                                <div class="edit-box">
+                                    <a class="edit-link" href="{% url 'category_edit' pk=category.id %}">Edit</a>
+                                </div>
+                                <div class="category-box">
+                                    <a class="edit-link" href="{% url 'category_delete' pk=category.id %}">Delete</a>
+                                </div>
                             </div>
                             <h2 class="card-name">{{ category.category_name }}</h2>
-                            <a class="btn btn-outline-black rounded-0" href="{% url 'category_edit' pk=category.id %}">Edit</a>
-                            <a class="btn btn-outline-black rounded-0" href="{% url 'category_delete' pk=category.id %}">Delete</a>
                             <hr />
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 /* Based on styling from the Code Institute "Codestar" Walkthrough */
 
 body {
-    background-color: #EFEAE2;
+    background-color: #efeae2;
 }
 
 .brand {
@@ -54,6 +54,27 @@ body {
     right: 0;
     background-color: #631b03;
     text-align: center;
+}
+
+.edit-box {
+    position: absolute;
+    bottom: 18%;
+    min-width: 30%;
+    right: 0;
+    background-color: #631b03;
+    text-align: center;
+}
+
+.edit-link {
+    text-decoration: none;
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.edit-link:hover,
+.edit-link:active {
+    color: #d4d1cc;
 }
 
 .category {
