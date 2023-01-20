@@ -128,6 +128,7 @@ body {
 }
 
 .btn-signup {
+    text-decoration: none;
     background-color: #631b03;
     color: #fff;
 }
@@ -135,6 +136,18 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
+    color: #631b03;
+}
+
+.btn-link {
+    text-decoration: none;
+    background: transparent;
+    color: #fff;
+}
+
+.btn-link:hover,
+.btn-link:active {
+    text-decoration: none;
     color: #631b03;
 }
 

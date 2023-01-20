@@ -190,13 +190,17 @@ class LibraryAdd(View):
 #         return render(request, template, context)
 
 
-class CategoryList(generic.ListView):
+class CategoryList(LoginRequiredMixin, generic.ListView):
     model = Category
     queryset = Category.objects.all()
     template_name = "categories.html"
 
 
-class CategoryEdit(generic.edit.UpdateView):
+class CategoryEdit(LoginRequiredMixin, generic.edit.UpdateView):
+    """
+    To access this template, a user must be logged in.
+    Via a form, a superuser can edit an existing category.
+    """
     model = Category
     fields = ('category_name', 'category_pic',)
     template_name_suffix = '_update'
@@ -209,7 +213,7 @@ class CategoryEdit(generic.edit.UpdateView):
         return super().form_valid(form)
 
 
-class CategoryDelete(DeleteView):
+class CategoryDelete(LoginRequiredMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('category_list')
 
@@ -220,7 +224,11 @@ class CategoryDelete(DeleteView):
     #     return super().form_valid(form)
 
 
-class CategoryCreate(CreateView):
+class CategoryCreate(LoginRequiredMixin, CreateView):
+    """
+    To access this template, a user must be logged in.
+    Via a form, a superuser can add a category to the database.
+    """
     model = Category
     fields = ('category_name', 'category_pic',)
     template_name_suffix = '_create'
