@@ -3,16 +3,21 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12 col-md-6">
-        <form method="POST" action="{% url 'story_edit' pk=story.id %}" class="form mb-2" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="text-right">
-                <a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Cancel</a>
-                <button class="btn btn-black rounded-0" type="submit">Save</button>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left top">
+            <div class="card-body">
+                <h2>Update a Story</h2>
+                <form method="POST" action="{% url 'story_edit' pk=story.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Save</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>            
 </div>
 {% endblock %}
