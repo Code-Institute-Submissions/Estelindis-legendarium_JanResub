@@ -215,3 +215,32 @@ class CategoryCreate(CreateView):
 
         return super().form_valid(form)
 
+
+# class CategoryDetail(View):
+
+#     def get(self, request, slug, *args, **kwargs):
+
+#         category_object = Category.objects.all()
+#         categories = get_object_or_404(category_object, slug=slug)
+#         stories = categories.story_category.filter(
+#             status=1).order_by("-created_on")
+
+#         return render(
+#             request,
+#             'category_detail.html',
+#             {
+#                 'stories': stories,
+#                 'categories': categories,
+#                 'category_object': category_object
+#             },
+#         )
+
+
+# class CategoryContents(generic.ListView):
+#     model = Story
+#     template_name = "category_detail.html"
+
+#     def get_queryset(self):
+#         return Story.objects.filter(category_slug=self.kwargs.get('slug'))
+#     # queryset = Story.objects.filter(status=1).order_by("-created_on")
+

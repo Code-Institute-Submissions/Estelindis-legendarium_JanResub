@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+{% load crispy_forms_tags %}
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Story name goes in these h1 tags -->
+                <h1 class="story-name">Category</h1>
+                <!-- Story author goes before the | the story's created date goes after -->
+                <p class="story-subname">Here is more text</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <h2>Further text</h2>
+            </div>    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock content %}
