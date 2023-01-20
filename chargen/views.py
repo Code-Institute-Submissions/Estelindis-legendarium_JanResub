@@ -61,6 +61,24 @@ class StoryList(generic.ListView):
     paginate_by = 6
 
 
+class StoryEdit(generic.edit.UpdateView):
+    model = Story
+    fields = ('name', 'summary', 'story', 'notes', 'story_image', 'story_category', 'status')
+    template_name_suffix = '_update'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        if not self.request.user.is_superuser:
+            raise PermissionDenied
+
+        return super().form_valid(form)
+
+
+class StoryDelete(DeleteView):
+    model = Story
+    success_url = reverse_lazy('home')
+
+
 class StoryCreate(LoginRequiredMixin, CreateView):
     """
     To access this template, a user must be logged in.
