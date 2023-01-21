@@ -26,6 +26,12 @@ from .forms import CategoryForm, CommentForm
 
 
 class AdminMixin(UserPassesTestMixin):
+    """
+    Via this mixin, view access is restricted to admins.
+    This mixin is presented applied to the category views:
+    CategoryCreate, CategoryDelete, CategoryEdit, & CategoryList.
+    Non-admins thus cannot alter categories, even via direct link.
+    """
     
     def test_func(self):
         return self.request.user.is_superuser
