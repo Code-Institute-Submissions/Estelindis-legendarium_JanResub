@@ -35,14 +35,17 @@ Legendarium is an online story database for characters, places, objects, or anyt
 
 ## User Goals
 - Easily navigate a readable, accessible website from any platform.
-- Read stories without having to register or log in.
+- Read other users' stories without having to register or log in.
 - Register to comment on stories and add them to one's library (this site's version of "likes").
+- As a registered user, have the ability to create, read, update, and delete one's own stories.
+- Have confidence that my content cannot be edited or deleted except by myself or an admin.
+- Save stories as drafts if they are not yet ready for publication.
 
 ## Owner Goals
 - Present stories to users in a readable, accessible format.
-- Create, update, and delete stories.
-- Include features like images, notes, and categories in stories.
-- Save stories as drafts if they are not yet ready for publication.
+- Include appealing features like images, notes, and categories in stories.
+- Manage content via the admin panel, e.g. approve comments, delete stories with objectionable content.
+- Have the ability to create, read, update, and delete categories via the front end.
 
 # Design
 In terms of visuals and data, Legendarium is inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Following the lessons in that walkthrough to gain understanding of the underlying principles, I made informed choices about where to retain elements, where to make partial changes, and where to add new styling and models.
