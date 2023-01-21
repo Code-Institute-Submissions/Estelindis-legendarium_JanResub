@@ -19,14 +19,18 @@
                                 <div class="category-box">
                                     <p class="category">{{ story.story_category }}</p>
                                 </div>
+                                {% if user.is_authenticated and user == story.author %}
+                                <div class="edit-box">
+                                    <a class="edit-link" href="{% url 'story_edit' story.id %}">Edit</a>
+                                </div>
+                                <div class="delete-box">
+                                    <a class="edit-link" href="{% url 'story_delete' story.id %}">Delete</a>
+                                </div>
+                                {% endif %}
                             </div>
                             <a href="{% url 'story_detail' story.slug  %}" class="story-link">
                                 <h2 class="card-name">{{ story.name }}</h2>
                                 <p class="card-text">{{ story.summary }}</p>
-                                {% if user.is_authenticated and user == story.author %}
-                                <a href="{% url 'story_edit' story.id %}">Edit</a>
-                                <a href="{% url 'story_delete' story.id %}">Delete</a>
-                                {% endif %}
                             </li>
                             </a>
                             <hr />
