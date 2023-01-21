@@ -145,34 +145,6 @@ class LibraryAdd(View):
         return HttpResponseRedirect(reverse('story_detail', args=[slug]))
 
 
-# class CategoryView(View):
-
-#     def get(self, request, id, *args, **kwargs):
-#         categories = Category.objects.all()
-#         category = get_object_or_404(categories, pk=id)
-#         form = CategoryForm(instance=category)
-#         template = 'add_category.html'
-#         context = {
-#             'form': form,
-#             'categories': categories,
-#             'id': id,
-#         }
-#         return render(request, template, context)
-
-#     def post(self, request, *args, **kwargs):
-#         form = CategoryForm(data=request.POST)
-#         if form.is_valid():
-#             form.instance.slug = slugify(form.instance.category_name)
-#             category = form.save(commit=False)
-#             category.save()
-#             return HttpResponseRedirect(reverse('add_category'))
-#         template = 'add_category.html'
-#         context = {
-#             'form': form,
-#         }
-#         return render(request, template, context)
-
-
 class CategoryList(AdminMixin, generic.ListView):
     model = Category
     queryset = Category.objects.all()
