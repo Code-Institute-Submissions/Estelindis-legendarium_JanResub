@@ -38,7 +38,7 @@ Legendarium is an online story database for characters, places, objects, or anyt
 - Read other users' stories without having to register or log in.
 - Register to comment on stories and add them to one's library (this site's version of "likes").
 - As a registered user, have the ability to create, read, update, and delete one's own stories.
-- Have confidence that my content cannot be edited or deleted except by myself or an admin.
+- Have confidence that my content cannot be edited or deleted except by myself or an admin (in the latter case, only via admin panel).
 - Save stories as drafts if they are not yet ready for publication.
 
 ## Owner Goals
@@ -286,22 +286,39 @@ To test front-end Delete functionality for categories, an admin follows these st
 - The admin will be asked if they really wish to delete the category or cancel the deletion. If "delete" is chosen, the category is deleted.  
 - Returning to the categories page, any deleted category will no longer be seen.
 
+### Goal: Front end content security
+This condenses the following goals:
+- (User) Have confidence that my content cannot be edited or deleted except by myself or an admin (in the latter case, only via admin panel).
+- (Owner) Prevent users from accessing unauthorised content via editing front end links.
+
+To test that, from the front end, users cannot edit or delete stories they have not authored, follow these steps:
+- If not already logged in, log in via the navbar.
+- Choose a self-authored story to edit or delete, then click its associated "edit" or "delete" link.
+- In the browser's URL bar, edit the URL to change the ID of the story being edited/deleted to a different ID, one associated with a story not authored by the current user.
+- On pressing enter in the URL bar to attempt to load the edit/delete page of another user's story, a 403 page will display instead, informing the user that this action is forbidden.
+- The user can then return to the story index / home page.
+- To test that another user's stories cannot be edited or deleted from the front end even by an admin, repeat these steps while logged in as an admin.
+
+To test that, from the front end, non-admin users cannot access category CRUD functionality (apart from reading categories as part of stories, or applying an existing category to a story they create), follow these steps:
+- If already logged in as an admin, log out, then log back in as a non-admin user.
+- In the browser's URL bar, edit the URL to the following: https://legendarium.herokuapp.com/categories/
+- On pressing enter in the URL bar to attempt to load the categories page, a 403 page will display instead, informing the user that this action is forbidden.
+- The user can then return to the story index / home page.
+- To test that categories also cannot be edited or deleted by non-admin users, repeat these steps, instead pasting category edit or delete links into the browser's URL bar.
+- Category edit links have the following format: https://legendarium.herokuapp.com/categories/edit/[integer representing an existent category id]
+- Category delete links have the following format: https://legendarium.herokuapp.com/categories/delete/[integer representing an existent category id]
+
 # Future Features
-- Users should be able to create, update, and delete their own stories.
 - Users should be able to view a list of stories added to their libraries.
 - Users should be able to view stories filtered by category.
 - Users should be able to add (and remove) tags for their own stories, so they can categorize their content beyond the limits of the standard admin-controlled categories.
-- Admins should be able to carry out all admin activities without having to access the built-in Django admin panel.  In this scenario, admin functions would appear on the front-end when admins are logged in (e.g. an admin viewing a page with comments would have the option to approve comments directly, from that page). 
+- Admins could potentially be made able to carry out all admin activities without having to access the built-in Django admin panel.  In this scenario, admin functions would appear on the front-end when admins are logged in (e.g. an admin viewing a page with comments would have the option to approve comments directly, from that page).  This may however have the disadvantage of removing the particular "paper trail" that is built into the admin view, if (for instance) admins are allowed to edit or delete any user-created content from the front end.
 
 ## Progress Towards Future Features
 
 - Some preliminary attempts were made to display a list of stories a user has added to their library.  While some success was achieved at returning a list, it did not attain a user-friendly form within the time period for the project.
 
 ![Future feature library display](/static/images/future_feature01.jpg)
-
-- Some effort was made to investigate methods to let users add their own stories.  However, in spite of the image field being included in the form to add a story, user-uploaded stories only ever displayed placeholder images.  Further investigation will be needed to develop this feature.
-
-![Future feature library display](/static/images/future_feature02.jpg)
 
 # Deployment
 
