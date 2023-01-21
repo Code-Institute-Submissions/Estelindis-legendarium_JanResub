@@ -44,8 +44,9 @@ Legendarium is an online story database for characters, places, objects, or anyt
 ## Owner Goals
 - Present stories to users in a readable, accessible format.
 - Include appealing features like images, notes, and categories in stories.
-- Manage content via the admin panel, e.g. approve comments, delete stories with objectionable content.
+- CRUD (create, read, update, and delete) content via the admin panel, e.g. approve comments, delete stories with objectionable content.
 - Have the ability to create, read, update, and delete categories via the front end.
+- Prevent users from accessing unauthorised content via editing front end links.
 
 # Design
 In terms of visuals and data, Legendarium is inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Following the lessons in that walkthrough to gain understanding of the underlying principles, I made informed choices about where to retain elements, where to make partial changes, and where to add new styling and models.
@@ -144,7 +145,7 @@ User and owner goals were tested to ensure that the aims of the project were ach
 ### Goal: Accessible Content
 This condenses the following goals:
 - (User) Easily navigate a readable, accessible website from any platform.
-- (User) Read stories without having to register or log in.
+- (User) Read other users' stories without having to register or log in.
 - (Owner) Present stories to users in a readable, accessible format.
 
 To test this functionality, an unregistered user follows these steps:
@@ -161,7 +162,7 @@ On following these steps, did the expected results occur?
 ![Story detail, tablet view](/static/images/screenshot_story_detail.jpg)
 
 ### Goal: User Registration
-- (User) Register to comment on stories and add them to one's library.
+- (User) Register to comment on stories and add them to one's library (this site's version of "likes").
 
 To test this functionality, a user follows these steps:
 - Navigate to Legendarium.
@@ -189,11 +190,12 @@ On following these steps, did the expected results occur?
 
 ### Goal: Manage Stories
 This condenses the following goals:
-- (Owner) Create, update, and delete stories.
-- (Owner) Include features like images, notes, and categories in stories.
-- (Owner) Save stories as drafts if they are not yet ready for publication.
+- (User) Save stories as drafts if they are not yet ready for publication.
+- (Owner) CRUD (create, read, update, and delete) content via the admin panel, e.g. approve comments, delete stories with objectionable content.
+- (Owner) Include appealing features like images, notes, and categories in stories.
 
-To test Create functionality, an admin follows these steps:
+
+To test Create functionality via the admin panel, an admin follows these steps:
 - Navigate to the Legendarium Admin area and log in as an Admin.
 - Under the "chargen" heading, in the Stories row, click or press Add.
 - Fill in the required fields of the story form, including name. The form shows that notes and an image can be added, but are not required.
@@ -236,6 +238,53 @@ On following these steps, did the expected results occur?
 ![Manual testing screenshot 01_02](/static/images/test03_05.jpg)
 
 ![Manual testing screenshot 01_03](/static/images/test03_06.jpg)
+
+### Goal: Front end CRUD functionality
+This condenses the following goals:
+- (User) As a registered user, have the ability to create, read, update, and delete one's own stories. 
+- (Owner) Have the ability to create, read, update, and delete categories via the front end.
+
+To test front-end Create and Read functionality for stories, both a regular user and an admin can follow these steps:
+- If not already logged in, log in via the navbar.
+- Navigate to "Create a Story" in the navbar.
+- Add required content to the story form, plus any additional optional content according to one's preference.
+- Click "save" at the bottom of the form.
+- If "published" status was chosen during creation, the newly created story can now be viewed in the story index / home page.
+
+To test front-end Update functionality for stories, both a regular user and an admin can follow these steps:
+- If not already logged in, log in via the navbar. On successful login, the user will be redirected to the story index / home page.
+- While logged in, any story of whom the current user is the author will now display an "edit" link.
+- Choose a self-authored story to edit, then click its associated "edit" link.
+- A form will appear allowing the user to edit that story. The edit can be cancelled or saved at the bottom of the form.
+- Returning to the story index / home page and clicking on the same story, any updates made can now be viewed.
+
+To test front-end Delete functionality for stories, both a regular user and an admin can follow these steps:
+- If not already logged in, log in via the navbar. On successful login, the user will be redirected to the story index / home page.
+- While logged in, any story of whom the current user is the author will now display a "delete" link.
+- Choose a self-authored story to delete, then click its associated "delete" link.
+- The user will be asked if they really wish to delete the story or cancel the deletion. If "delete" is chosen, the story is deleted.  
+- Returning to the story index / home page, any deleted story will no longer be seen.
+
+To test front-end Create and Read functionality for categories, an admin follows these steps:
+- If not already logged in, log in as an admin via the navbar.
+- Navigate to "Create a Category" in the navbar.
+- Add required content to the category form, plus any additional optional content according to one's preference.
+- Click "save" at the bottom of the form.
+- The newly created category can now be viewed by an admin by navigating to "Categories" via the navbar.
+
+To test front-end Update functionality for categories, an admin follows these steps:
+- If not already logged in, log in as an admin via the navbar.
+- Navigate to "Categories" in the navbar.
+- Choose a category to edit, then click its associated "edit" link.
+- A form will appear allowing the admin to edit that category. The edit can be cancelled or saved at the bottom of the form.
+- Returning to the categories page, any updates made can now be viewed.
+
+To test front-end Delete functionality for categories, an admin follows these steps:
+- If not already logged in, log in as an admin via the navbar.
+- Navigate to "Categories" in the navbar.
+- Choose a category to delete, then click its associated "delete" link.
+- The admin will be asked if they really wish to delete the category or cancel the deletion. If "delete" is chosen, the category is deleted.  
+- Returning to the categories page, any deleted category will no longer be seen.
 
 # Future Features
 - Users should be able to create, update, and delete their own stories.
