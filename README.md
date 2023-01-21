@@ -78,7 +78,7 @@ Legendarium was developed using agile methods, with the help of a [GitHub kanban
 
 ## HTML Validation
 The html of the index (home page) and story_detail (individual story) pages were validated via [W3's Nu Html Checker](https://validator.w3.org/nu/).
-Both deployed links and source html were tested.
+Both deployed links and source html were tested. Additionally, the source code of various login-required pages was checked (including the admin-only categories listing and the pages for creating new stories and categories).
 
 ### Index, URL
 
@@ -95,6 +95,18 @@ Both deployed links and source html were tested.
 ### Story, Source
 
 ![Story, source.](/static/images/valid_html_source_index.jpg)
+
+### Categories, Source
+
+![Story, source.](/static/images/valid_html_source_categories.jpg)
+
+### Add Category, Source
+
+![Story, source.](/static/images/valid_html_source_category_add.jpg)
+
+### Add Story, Source
+
+![Story, source.](/static/images/valid_html_source_story_add.jpg)
 
 ## CSS Validation
 The CSS of the index (home page) and story_detail (individual story) pages were validated via [W3's Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
