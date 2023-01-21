@@ -48,13 +48,13 @@ Legendarium is an online story database for characters, places, objects, or anyt
 In terms of visuals and data, Legendarium is inspired by the Code Institute "I Think Therefore I Blog" Codestar walkthrough project.  Following the lessons in that walkthrough to gain understanding of the underlying principles, I made informed choices about where to retain elements, where to make partial changes, and where to add new styling and models.
 
 ## Wireframes
-Legendarium was originally imagined as a database for RPG character backstories.  Its initial wireframes reflect this vision, as does the name of its "chargen" app.  However, as development continued, it was reimagined as a database for stories of all kinds.  
+Legendarium was originally imagined as a database for RPG character backstories.  Its initial wireframes reflect this vision, as does the name of its "chargen" app.  However, as development continued, it was reimagined as a database for stories of all kinds.   Further, the eventual site moved away from the initially planned large quantity of text on the index page, in favour of a more intuitive, image-centred approach.
 
 ![Mobile wireframe.](/static/images/mobile_wireframe.png)
 ![Desktop wireframe.](/static/images/desktop_wireframe.png)
 
 ## Data Models
-The comment model follows the Codestar walkthrough.  The Story model is adapted from the walkthrough's Post model, to include new elements such as an optional "notes" field and categories in which stories can be placed.  As "post" is a method as well as a model in the Codestar walkthrough, care had to be taken to adapt only the appropriate content.  An original Category model is added to facilitate the categorization of stories.  While categories could have been added as a choice field in the Story model, a separate Category model allows admins to CRUD categories via the admin panel, without having to change any code.  Category images are not in use in the live site at present, but their functionality exists to facilitate future development in which stories could be filtered by category.  Associating each category with an image would make this task more pleasing at the UI level.
+The Comment model follows the Codestar walkthrough.  The Story model is adapted from the walkthrough's Post model, to include new elements such as an optional "notes" field and categories in which stories can be placed.  An original Category model is added to facilitate the categorization of stories.  While categories could have been added as a choice field in the Story model, a separate Category model allows admins to create, update, and delete categories without having to change any code.  
 
 ![Data model diagram.](/static/images/data_model_diagram.jpg)
 
