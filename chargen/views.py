@@ -11,17 +11,26 @@ from .forms import CategoryForm, CommentForm
 
 
 class AuthorMixin(UserPassesTestMixin):
-    model = Story
+    """
+    Via this mixin, view access is restricted to story authors.
+    This mixin is applied to the story edit and delete views:
+    StoryEdit, & StoryDelete.
+    Consequently, stories can't be edited or deleted from the front end,
+    even via direct link, except by the users who authored them.
+    Admins can edit or delete stories they did not author,
+    if needed, via the admin panel (which leaves an action trail).
+    Thanks to https://stackoverflow.com/a/60269972/18794218
+    """
 
     def test_func(self):
-        if self.request.user == story.author:
-            return True
+        obj = self.get_object()
+        return obj.author == self.request.user
 
 
 class AdminMixin(UserPassesTestMixin):
     """
     Via this mixin, view access is restricted to admins.
-    This mixin is presently applied to the category views:
+    This mixin is applied to the category views:
     CategoryCreate, CategoryDelete, CategoryEdit, & CategoryList.
     Non-admins thus cannot alter categories, even via direct link.
     """
@@ -40,8 +49,9 @@ class StoryList(generic.ListView):
     paginate_by = 6
 
 
-class StoryEdit(generic.edit.UpdateView):
+class StoryEdit(AuthorMixin, generic.edit.UpdateView):
     """
+    To access this view, the user must be the story's author.
     This view grants access to a form to edit an existing story.
     """
     model = Story
@@ -56,8 +66,9 @@ class StoryEdit(generic.edit.UpdateView):
         return super().form_valid(form)
 
 
-class StoryDelete(DeleteView):
+class StoryDelete(AuthorMixin, DeleteView):
     """
+    To access this view, the user must be the story's author.
     This view allows an existing story to be deleted.
     """
     model = Story
