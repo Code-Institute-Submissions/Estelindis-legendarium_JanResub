@@ -3,11 +3,32 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.exceptions import PermissionDenied
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils.text import slugify
 from django.urls import reverse, reverse_lazy
 from .models import Story, Category
 from .forms import CategoryForm, CommentForm
+
+
+# class StoryAccessMixin(LoginRequiredMixin, UserPassesTestMixin):
+#     model = Story
+
+#     def test_func(self):
+#         if self.request.user.is_superuser:
+#             return True
+#         if self.request.user == story.author:
+#             return True
+
+#     # def handle_no_permission(self):
+#     #     return JsonResponse(
+#     #         {'message': 'You may not rewrite this story'}
+#     #     )
+
+
+class AdminMixin(UserPassesTestMixin):
+    
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 class LibraryList(generic.ListView):
@@ -190,13 +211,13 @@ class LibraryAdd(View):
 #         return render(request, template, context)
 
 
-class CategoryList(LoginRequiredMixin, generic.ListView):
+class CategoryList(AdminMixin, generic.ListView):
     model = Category
     queryset = Category.objects.all()
     template_name = "categories.html"
 
 
-class CategoryEdit(LoginRequiredMixin, generic.edit.UpdateView):
+class CategoryEdit(AdminMixin, generic.edit.UpdateView):
     """
     To access this template, a user must be logged in.
     Via a form, a superuser can edit an existing category.
@@ -213,7 +234,7 @@ class CategoryEdit(LoginRequiredMixin, generic.edit.UpdateView):
         return super().form_valid(form)
 
 
-class CategoryDelete(LoginRequiredMixin, DeleteView):
+class CategoryDelete(AdminMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('category_list')
 
@@ -224,7 +245,7 @@ class CategoryDelete(LoginRequiredMixin, DeleteView):
     #     return super().form_valid(form)
 
 
-class CategoryCreate(LoginRequiredMixin, CreateView):
+class CategoryCreate(AdminMixin, CreateView):
     """
     To access this template, a user must be logged in.
     Via a form, a superuser can add a category to the database.
