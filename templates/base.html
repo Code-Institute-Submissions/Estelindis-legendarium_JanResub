@@ -45,9 +45,6 @@
                             </li>
                             {% elif user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'library_view' %}">Library</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{% url 'story_create' %}">Create a Story</a>
                             </li>
                             <li class="nav-item">

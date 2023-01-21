@@ -12,7 +12,4 @@ urlpatterns = [
     path('stories/delete/<int:pk>/', views.StoryDelete.as_view(), name='story_delete'),
     path('<slug:slug>/', views.StoryDetail.as_view(), name='story_detail'),
     path('library/<slug:slug>', views.LibraryAdd.as_view(), name='library_add'),
-    path('library/view/', views.LibraryList.as_view(), name='library_view'),
-    # path("library/", views.StoryLibrary.as_view(), name="library"),
-    # path('category/character/', views.CategoryDetail.as_view(), name='category_detail'),
 ]

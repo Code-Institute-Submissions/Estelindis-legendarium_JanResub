@@ -37,50 +37,6 @@ class AdminMixin(UserPassesTestMixin):
         return self.request.user.is_superuser
 
 
-class LibraryList(generic.ListView):
-    model = Story
-    
-    def get_user_library(self, request):
-        username = self.request.user
-        stories_in_lib = username.story_library.all()
-        return stories_in_lib
-
-    template_name = "library.html"
-
-
-# class LibraryView(CreateView):
-
-#     def get(self, request, *args, **kwargs):
-#         user_lib = Story.objects.filter(story_library=request.user)
-#         return render(
-#             request, 'library.html', {
-#                 'user_lib': user_lib,
-#             })
-
-
-# class StoryLibrary(View):
-
-#     def get(self, request, *args, **kwargs):
-#         user_stories_in_lib = self.request.user.story_library.all()
-#         return render(
-#             request,
-#             "library.html",
-#             {
-#                 "user_stories_in_lib": user_stories_in_lib,
-#             },
-#         )
-
-#     def post(self, request, *args, **kwargs):
-#          user_stories_in_lib = self.request.user.story_library.all()
-#          return render(
-#             request,
-#             "library.html",
-#             {
-#                 "user_stories_in_lib": user_stories_in_lib,
-#             },
-#         )
-
-
 class StoryList(generic.ListView):
     model = Story
     queryset = Story.objects.filter(status=1).order_by("-created_on")
@@ -244,12 +200,6 @@ class CategoryDelete(AdminMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('category_list')
 
-    # def form_valid(self, form):
-    #     if not self.request.user.is_superuser:
-    #         raise PermissionDenied
-
-    #     return super().form_valid(form)
-
 
 class CategoryCreate(AdminMixin, CreateView):
     """
@@ -267,33 +217,4 @@ class CategoryCreate(AdminMixin, CreateView):
             raise PermissionDenied
 
         return super().form_valid(form)
-
-
-# class CategoryDetail(View):
-
-#     def get(self, request, slug, *args, **kwargs):
-
-#         category_object = Category.objects.all()
-#         categories = get_object_or_404(category_object, slug=slug)
-#         stories = categories.story_category.filter(
-#             status=1).order_by("-created_on")
-
-#         return render(
-#             request,
-#             'category_detail.html',
-#             {
-#                 'stories': stories,
-#                 'categories': categories,
-#                 'category_object': category_object
-#             },
-#         )
-
-
-# class CategoryContents(generic.ListView):
-#     model = Story
-#     template_name = "category_detail.html"
-
-#     def get_queryset(self):
-#         return Story.objects.filter(category_slug=self.kwargs.get('slug'))
-#     # queryset = Story.objects.filter(status=1).order_by("-created_on")
 
