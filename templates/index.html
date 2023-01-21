@@ -23,6 +23,11 @@
                             <a href="{% url 'story_detail' story.slug  %}" class="story-link">
                                 <h2 class="card-name">{{ story.name }}</h2>
                                 <p class="card-text">{{ story.summary }}</p>
+                                {% if user.is_authenticated and user == story.author %}
+                                <a href="{% url 'story_edit' story.id %}">Edit</a>
+                                <a href="{% url 'story_delete' story.id %}">Delete</a>
+                                {% endif %}
+                            </li>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">By {{ story.author }}, {{ story.created_on}} 
