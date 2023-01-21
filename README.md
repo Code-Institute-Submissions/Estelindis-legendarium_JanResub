@@ -251,6 +251,8 @@ To test front-end Create and Read functionality for stories, both a regular user
 - Click "save" at the bottom of the form.
 - If "published" status was chosen during creation, the newly created story can now be viewed in the story index / home page.
 
+![Manual testing: front-end create story screenshot](/static/images/test_create_story.jpg)
+
 To test front-end Update functionality for stories, both a regular user and an admin can follow these steps:
 - If not already logged in, log in via the navbar. On successful login, the user will be redirected to the story index / home page.
 - While logged in, any story of whom the current user is the author will now display an "edit" link.
@@ -265,12 +267,17 @@ To test front-end Delete functionality for stories, both a regular user and an a
 - The user will be asked if they really wish to delete the story or cancel the deletion. If "delete" is chosen, the story is deleted.  
 - Returning to the story index / home page, any deleted story will no longer be seen.
 
+![Manual testing: front-end edit/delete story screenshot](/static/images/test_edit_delete_story.jpg)
+![Manual testing: delete confirmation screenshot](/static/images/test_delete_confirm.jpg)
+
 To test front-end Create and Read functionality for categories, an admin follows these steps:
 - If not already logged in, log in as an admin via the navbar.
 - Navigate to "Create a Category" in the navbar.
 - Add required content to the category form, plus any additional optional content according to one's preference.
 - Click "save" at the bottom of the form.
 - The newly created category can now be viewed by an admin by navigating to "Categories" via the navbar.
+
+![Manual testing: front-end create category screenshot](/static/images/test_create_category.jpg)
 
 To test front-end Update functionality for categories, an admin follows these steps:
 - If not already logged in, log in as an admin via the navbar.
@@ -291,15 +298,17 @@ This condenses the following goals:
 - (User) Have confidence that my content cannot be edited or deleted except by myself or an admin (in the latter case, only via admin panel).
 - (Owner) Prevent users from accessing unauthorised content via editing front end links.
 
-To test that, from the front end, users cannot edit or delete stories they have not authored, follow these steps:
+To test that (from the front end) users cannot edit or delete stories they have not authored, follow these steps:
 - If not already logged in, log in via the navbar.
 - Choose a self-authored story to edit or delete, then click its associated "edit" or "delete" link.
-- In the browser's URL bar, edit the URL to change the ID of the story being edited/deleted to a different ID, one associated with a story not authored by the current user.
+- In the browser's URL bar, edit the URL to change the ID of the story being edited/deleted to a different ID, one associated with an existent story not authored by the current user.
 - On pressing enter in the URL bar to attempt to load the edit/delete page of another user's story, a 403 page will display instead, informing the user that this action is forbidden.
 - The user can then return to the story index / home page.
 - To test that another user's stories cannot be edited or deleted from the front end even by an admin, repeat these steps while logged in as an admin.
 
-To test that, from the front end, non-admin users cannot access category CRUD functionality (apart from reading categories as part of stories, or applying an existing category to a story they create), follow these steps:
+![Manual testing: custom 403 screenshot](/static/images/test_403.jpg)
+
+To test that (from the front end) non-admin users cannot access category CRUD functionality (apart from reading categories as part of stories, or applying an existing category to a story they create), follow these steps:
 - If already logged in as an admin, log out, then log back in as a non-admin user.
 - In the browser's URL bar, edit the URL to the following: https://legendarium.herokuapp.com/categories/
 - On pressing enter in the URL bar to attempt to load the categories page, a 403 page will display instead, informing the user that this action is forbidden.
@@ -307,6 +316,8 @@ To test that, from the front end, non-admin users cannot access category CRUD fu
 - To test that categories also cannot be edited or deleted by non-admin users, repeat these steps, instead pasting category edit or delete links into the browser's URL bar.
 - Category edit links have the following format: https://legendarium.herokuapp.com/categories/edit/[integer representing an existent category id]
 - Category delete links have the following format: https://legendarium.herokuapp.com/categories/delete/[integer representing an existent category id]
+
+![Manual testing: screenshot of editing a forbidden url into the browser url bar](/static/images/test_forbidden_url.jpg)
 
 # Future Features
 - Users should be able to view a list of stories added to their libraries.
